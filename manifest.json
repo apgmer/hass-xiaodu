@@ -1,0 +1,16 @@
+{
+  "domain": "xiaodu",
+  "name": "XiaoDu API",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/xiaodu",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@apgmer"
+  ],
+  "iot_class": "cloud_polling",
+  "version": "0.1.0"
+}
