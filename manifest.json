@@ -2,7 +2,7 @@
   "domain": "xiaodu",
   "name": "XiaoDu API",
   "config_flow": true,
-  "documentation": "https://www.home-assistant.io/integrations/xiaodu",
+  "documentation": "https://github.com/apgmer/hass-xiaodu",
   "requirements": [],
   "ssdp": [],
   "zeroconf": [],
