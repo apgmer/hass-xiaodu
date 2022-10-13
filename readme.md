@@ -9,6 +9,7 @@
 ## 用法：
 
 clone 代码到 custom_components/xiaodu
+
 configuration.yaml xiaodu:
 
 1. 添加继承 XiaoDu Api
