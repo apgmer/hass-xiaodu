@@ -8,6 +8,9 @@
 
 ## 用法：
 
+clone 代码到 custom_components/xiaodu
+configuration.yaml xiaodu:
+
 1. 添加继承 XiaoDu Api
 2. 打开上述网站，登录百度账号，在接口调用中赋值request全部Cookie
 3. 上述1中添加Cookie
