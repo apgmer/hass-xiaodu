@@ -28,32 +28,24 @@ class XiaoDuCurtain(CoverEntity):
 
     def open_cover(self, **kwargs: Any) -> None:
         hub: XiaoDuHub = self.hass.data[DOMAIN]['hub']
-        hub.curtain_set_position(self._attr_unique_id, 100)
+        _LOGGER.info("open_cover")
+        hub.curtain_toggle(self._attr_unique_id, "TurnOnRequest")
 
     def close_cover(self, **kwargs: Any) -> None:
         hub: XiaoDuHub = self.hass.data[DOMAIN]['hub']
-        hub.curtain_set_position(self._attr_unique_id, 0)
+        hub.curtain_toggle(self._attr_unique_id, "TurnOffRequest")
+        _LOGGER.info("close_cover")
 
     def set_cover_position(self, **kwargs: Any) -> None:
-        hub: XiaoDuHub = self.hass.data[DOMAIN]['hub']
-        position = 8
-        hub.curtain_set_position(self._attr_unique_id, position)
+        if kwargs['position'] > 50:
+            self.close_cover()
+        else:
+            self.open_cover()
 
     def stop_cover(self, **kwargs: Any) -> None:
         hub: XiaoDuHub = self.hass.data[DOMAIN]['hub']
         hub.curtain_stop(self.unique_id)
-
-    # async def async_open_cover(self, **kwargs: Any) -> None:
-    #     await self.hass.async_add_executor_job(self.open_cover)
-    #
-    # async def async_close_cover(self, **kwargs: Any) -> None:
-    #     await self.hass.async_add_executor_job(self.close_cover)
-    #
-    # async def async_set_cover_position(self, **kwargs: Any) -> None:
-    #     await self.hass.async_add_executor_job(self.close_cover, kwargs)
-    #
-    # async def async_stop_cover(self, **kwargs: Any) -> None:
-    #     await self.hass.async_add_executor_job(self.stop_cover, kwargs)
+        _LOGGER.info("stop_cover")
 
     def __init__(self, application_id, appliance_type, name_type, current_cover_position, bot_id,
                  bot_name) -> None:

@@ -56,6 +56,7 @@ class XiaoDuHub:
         _LOGGER.info("request \n %s \n %s \n %s \t %s", HOST + api, param, response.status_code, response.json())
         return response.status_code == 200
 
+    # 厂商无效果
     def curtain_set_position(self, unique_id, position: int):
         api = '/saiya/smarthome/directivesend?from=h5_control'
         param = {
@@ -80,6 +81,30 @@ class XiaoDuHub:
         response = requests.post(HOST + api, headers=self._common_header(), json=param)
         _LOGGER.info("request \n %s \n %s \n %s \t %s", HOST + api, param, response.status_code, response.json())
         return response.status_code == 200
+
+    def curtain_toggle(self, unique_id, method):
+        api = '/saiya/smarthome/directivesend?from=h5_control'
+        param = {
+            "header": {
+                "namespace": "DuerOS.ConnectedHome.Control",
+                "name": method,
+                "payloadVersion": 3
+            },
+            "payload": {
+                "appliance": {
+                    "applianceId": [
+                        unique_id
+                    ]
+                },
+                "parameters": {
+                    "proxyConnectStatus": False
+                }
+            }
+        }
+        response = requests.post(HOST + api, headers=self._common_header(), json=param)
+        _LOGGER.info("request \n %s \n %s \n %s \t %s", HOST + api, param, response.status_code, response.json())
+        return response.status_code == 200
+
 
     def curtain_stop(self, unique_id):
         api = '/saiya/smarthome/directivesend?from=h5_control'

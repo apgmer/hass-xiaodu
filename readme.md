@@ -18,7 +18,8 @@
 
 - [x] `SWITCH`, `OUTLET` 解析为 `Platform.SWITCH` 开关/插座
 - [x] `SCENE_TRIGGER` 解析为 `Platform.BUTTON` 按钮
-- [未测试] `CURTAIN` 解析为 `Platform.COVER` 窗帘
+- [x] `CURTAIN` 解析为 `Platform.COVER` 窗帘 
+  - 窗帘只能控制开/关/停 不能控制进度。 位置 > 50 执行关 否则执行开
 
 ## 其他
 
