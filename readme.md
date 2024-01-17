@@ -33,3 +33,7 @@ configuration.yaml xiaodu:
 
 ## 另
 以上仅在小度接入了`南京物联`的设备中测试，其他厂商的设备尚不清楚
+
+有能力的大佬可以自己开发，有什么不同的可以一起交流，本人也是菜鸡一枚
+
+![IMG_0805](https://github.com/apgmer/hass-xiaodu/assets/9553342/9cbd450f-c2ba-41c3-9403-c5a4d576aa8f)
